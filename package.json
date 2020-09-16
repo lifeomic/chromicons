@@ -6,7 +6,6 @@
   "author": "Tony Ward <tony.ward@lifeomic.com>",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "npm run build:lined && npm run build:react",
     "build:lined": "rm -rf ./lined && cp -R src/lined lined/",
     "build:react": "svgr -d react src --svg-props viewBox='0 0 24 24'"
