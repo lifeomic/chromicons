@@ -2,6 +2,8 @@ name: Release
 
 on:
   push:
+    branches:
+      - master
     tags:
       - "v*"
 
@@ -18,7 +20,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org
       - name: Build and npm publish
-        if: endsWith(github.ref, 'master') == true
         run: |
           yarn
           yarn build
@@ -26,7 +27,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.LIFEOMIC_NPM_TOKEN}}
       - name: Create Release
-        if: endsWith(github.ref, 'master') == true
         id: create_release
         uses: actions/create-release@latest
         env:
