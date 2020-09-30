@@ -1,6 +1,6 @@
 {
   "name": "@lifeomic/chromicons",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "repository": "git@github.com:lifeomic/chromicons.git",
   "author": "LifeOmic <oss@lifeomic.com>",
