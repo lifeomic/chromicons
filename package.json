@@ -17,9 +17,10 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "tsdx build",
+    "clean": "rm -rf dist/ && rm src/index.tsx && rm -rf src/lined/",
     "generate:build-output": "yarn generate:react-components && yarn generate:index-file",
     "generate:index-file": "echo \"export * from './lined'\" > src/index.tsx",
-    "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/lined --typescript",
+    "generate:react-components": "svgr --template svg-template.js lined/ --out-dir src/lined --typescript",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -44,7 +45,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "yarn size"
     }
   },
   "prettier": {
