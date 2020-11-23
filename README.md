@@ -1,18 +1,34 @@
-# CHROMICONS
+<p align="center">
+  <a href="https://github.com/lifeomic/chromicons">
+    <img src="https://github.com/lifeomic/chromicons/blob/master/.github/chromicons@2x.png?raw=true" alt="Chromicons" width="300" />
+  </a>
+</p>
 
-Handcrafted open source icons from LifeOmic. Ready to use in web, iOS, Android, and desktop apps. Support for SVG
-and web font. Completely open source, MIT licensed, and built with
-♥️ by the team at LifeOmic.
+<br>
+
+Handcrafted open source icons from LifeOmic. Ready to use in web, iOS, Android, and desktop apps. Completely open source, MIT licensed, and built with ♥️ by the team at LifeOmic.
 
 ## Usage
 
-### Web app (coming soon)
+### npm package 📦
 
-A web app is currently in the works allowing you to copy the SVGs directly.
+The recommended path for usage is via the package on npm.
 
-### npm package
+1. Install Dependency
 
-Chromicons is published to npm; however, it is not stable at the moment. We are planning on improving the build process so that web applications can import chromicons directly with minimal effort. The current configuration requires a webpack loader when dealing with React, for example. You can [track the progress of this effort here](https://github.com/lifeomic/chromicons/issues/3).
+```bash
+yarn add @lifeomic/chromicons
+```
+
+2. Import Icons!
+
+```js
+import { Apple } from '@lifeomic/chromicons';
+```
+
+### Web App 💻
+
+You can view and copy all of the SVGs to your clipboard via the [web app](https://lifeomic.github.io/chromicons.com/). It also provides a link to download all raw SVGs.
 
 ## Icon Requests
 
