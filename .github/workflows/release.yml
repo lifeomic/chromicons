@@ -24,7 +24,6 @@ jobs:
         run: |
           yarn
           yarn generate:build-output
-          yarn build
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.LIFEOMIC_NPM_TOKEN}}
