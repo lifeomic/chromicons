@@ -1,20 +1,66 @@
 {
   "name": "@lifeomic/chromicons",
   "version": "0.0.4",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/chromicons.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "repository": "git@github.com:lifeomic/chromicons.git",
   "author": "LifeOmic <oss@lifeomic.com>",
   "license": "MIT",
   "scripts": {
-    "build": "npm run build:lined && npm run build:react",
-    "build:lined": "rm -rf ./lined && cp -R src/lined lined/",
-    "build:react": "svgr -d react src --svg-props viewBox='0 0 24 24'"
+    "analyze": "size-limit --why",
+    "build": "tsdx build",
+    "generate:build-output": "yarn generate:react-components && yarn generate:index-file",
+    "generate:index-file": "echo \"export * from './lined'\" > src/index.tsx",
+    "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/lined --typescript",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "start": "tsdx watch",
+    "test": "tsdx test --passWithNoTests"
   },
-  "files": [
-    "lined/",
-    "react/"
-  ],
   "devDependencies": {
-    "@svgr/cli": "^5.4.0"
-  }
+    "@size-limit/preset-small-lib": "^4.8.0",
+    "@svgr/cli": "^5.5.0",
+    "@types/react-dom": "^16.9.9",
+    "@types/react": "^16.14.0",
+    "husky": "^4.3.0",
+    "react-dom": "^17.0.1",
+    "react": "^17.0.1",
+    "size-limit": "^4.8.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/chromicons.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/chromicons.esm.js",
+      "limit": "15 KB"
+    }
+  ]
 }

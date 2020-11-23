@@ -23,6 +23,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           yarn
+          yarn generate:build-output
           yarn build
           npm publish --access public
         env:
