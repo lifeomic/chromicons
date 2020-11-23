@@ -1,6 +1,6 @@
 {
   "name": "@lifeomic/chromicons",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/chromicons.esm.js",
@@ -43,11 +43,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn size"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -57,7 +52,7 @@
   "size-limit": [
     {
       "path": "dist/chromicons.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "15 KB"
     },
     {
       "path": "dist/chromicons.esm.js",
