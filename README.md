@@ -1,3 +1,5 @@
+# Chromicons
+
 <p align="center">
   <a href="https://github.com/lifeomic/chromicons">
     <img src="https://github.com/lifeomic/chromicons/blob/master/.github/chromicons@2x.png?raw=true" alt="Chromicons" width="300" />
