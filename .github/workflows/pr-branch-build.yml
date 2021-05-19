@@ -1,0 +1,20 @@
+name: PR Branch Build
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Build
+        run: |
+          yarn
+          yarn generate:build-output
+          yarn build
