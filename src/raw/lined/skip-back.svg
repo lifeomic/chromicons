@@ -1,4 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor">
-  <path d="M19.4,21V3L13.9,7.5,8.4,12l5.5,4.5ZM4.6,21V3" fill="none" stroke-linecap="round" stroke-linejoin="round"
-    stroke-width="2" />
+  <path d="M17.767,19.664A1,1,0,0,0,19.4,18.89V5.11a1,1,0,0,0-1.633-.774L13.9,7.5,9.346,11.226a1,1,0,0,0,0,1.548L13.9,16.5ZM4.6,21V3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
 </svg>
