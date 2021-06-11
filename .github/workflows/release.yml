@@ -2,25 +2,20 @@ name: Release
 
 on:
   push:
-    branches:
-      - master
     tags:
       - "v*"
 
 jobs:
   build:
+    if: ${{ github.head_ref }} == "master"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Exit if not on master branch
-        if: endsWith(github.ref, 'master') == false
-        run: exit 0
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
       - name: Build and npm publish
-        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           yarn
           yarn generate:build-output
@@ -28,7 +23,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.LIFEOMIC_NPM_TOKEN}}
       - name: Create Release
-        if: startsWith(github.ref, 'refs/tags/v')
         id: create_release
         uses: actions/create-release@latest
         env:
