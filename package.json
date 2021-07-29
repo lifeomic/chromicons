@@ -1,6 +1,6 @@
 {
   "name": "@lifeomic/chromicons",
-  "version": "1.0.3",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/chromicons.esm.js",
@@ -14,6 +14,9 @@
   "repository": "git@github.com:lifeomic/chromicons.git",
   "author": "LifeOmic <oss@lifeomic.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "analyze": "size-limit --why",
     "build": "tsdx build",
@@ -32,9 +35,11 @@
     "@svgr/cli": "^5.5.0",
     "@types/react": "^16.14.0",
     "@types/react-dom": "^16.9.9",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
     "husky": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "semantic-release": "^17.4.4",
     "size-limit": "^4.8.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
