@@ -21,9 +21,10 @@
     "analyze": "size-limit --why",
     "build": "tsdx build",
     "clean": "rm -rf src/lined && rm -rf dist/",
-    "generate:build-output": "yarn generate:react-components && yarn generate:index-file",
+    "generate:build-output": "yarn generate:react-components && yarn generate:react-native-components && yarn generate:index-file",
     "generate:index-file": "echo \"export * from './lined'\" > src/index.tsx",
     "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/lined --typescript",
+    "generate:react-native-components": "svgr --template svg-rn-template.js src/raw/lined --out-dir src/lined/react-native --typescript --native",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -46,7 +47,13 @@
     "typescript": "^4.1.2"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "react-native-svg": "12.x"
+  },
+  "peerDependenciesMeta": {
+    "react-native-svg": {
+      "optional": true
+    }
   },
   "prettier": {
     "printWidth": 80,
