@@ -40,7 +40,7 @@ const generate = async (inputPath, outputPath, sizes, cmd) => {
   await Promise.all(
     svgPaths.map(svgPath => {
       const imageName = path.parse(svgPath).name;
-      const outDir = path.join(outPath ?? path.dirname(svgPath), imageName);
+      const outDir = path.join(outPath || path.dirname(svgPath), imageName);
       const image = sharp(svgPath);
 
       return image
