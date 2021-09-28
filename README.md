@@ -28,7 +28,7 @@ yarn add @lifeomic/chromicons
 import { Apple } from '@lifeomic/chromicons';
 ```
 
-#### With React-Native (react-native-svg)
+**With React-Native (react-native-svg)**
 
 1. Install Dependencies
 
