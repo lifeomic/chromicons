@@ -28,6 +28,22 @@ yarn add @lifeomic/chromicons
 import { Apple } from '@lifeomic/chromicons';
 ```
 
+#### With React-Native (react-native-svg)
+
+1. Install Dependencies
+
+```bash
+yarn add @lifeomic/chromicons react-native-svg
+```
+
+2. Import the Icon Components
+
+```jsx
+import { Apple } from '@lifeomic/chromicons/src/lined/react-native';
+
+<Apple stroke="red" />;
+```
+
 ### Web App 💻
 
 You can view and copy all of the SVGs to your clipboard via the [web app](https://lifeomic.github.io/chromicons.com/). It also provides a link to download all raw SVGs.
