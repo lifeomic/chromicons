@@ -28,6 +28,17 @@ yarn add @lifeomic/chromicons
 import { Apple } from '@lifeomic/chromicons';
 ```
 
+**With React-Native**
+
+Icon images are stored in the `src/lined/images` folder. Each icon has its own folder with images for different screen densities (@1x, @1.5x, @2x, ..., @4x). Usage:
+
+```jsx
+<Image
+  style={{ height: 24, width: 24, tintColor: 'red' }}
+  source={require('@lifeomic/chromicons/src/lined/images/apple/apple.png')}
+/>
+```
+
 **With React-Native (react-native-svg)**
 
 1. Install Dependencies
