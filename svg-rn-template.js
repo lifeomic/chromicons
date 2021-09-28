@@ -1,5 +1,5 @@
 /**
- * This template allows us to modify the generated React component template.
+ * This template allows us to modify the generated React Native component template.
  */
 
 function template(
