@@ -23,4 +23,5 @@ jobs:
           NPM_TOKEN: ${{secrets.LIFEOMIC_NPM_TOKEN}}
         run: |
           yarn build
-          npx semantic-release
+          npx semantic-release --pkgRoot build/native
+          npx semantic-release --pkgRoot build/react
