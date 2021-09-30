@@ -31,7 +31,6 @@
     "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/build/react/lined --typescript",
     "generate:react-native-components": "svgr --template svg-rn-template.js src/raw/lined --out-dir src/build/native/lined --typescript --native",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "start": "tsdx watch",
     "test": "tsdx test --passWithNoTests"
@@ -63,11 +62,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/chromicons.cjs.production.min.js",
+      "path": "build/react/dist/chromicons.cjs.production.min.js",
       "limit": "15 KB"
     },
     {
-      "path": "dist/chromicons.esm.js",
+      "path": "build/react/dist/chromicons.esm.js",
       "limit": "15 KB"
     }
   ]
