@@ -19,12 +19,17 @@
   },
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "tsdx build",
-    "clean": "rm -rf src/lined && rm -rf dist/",
+    "build": "yarn build:react && yarn build:native",
+    "postbuild": "node prepare-packages.js",
+    "build:react": "tsdx build -i src/build/react/index.tsx --tsconfig tsconfig.json",
+    "postbuild:react": "mkdir -p build/react && mv dist build/react && mv src/build/react build/react/src && cp -R src/raw build/react/src",
+    "build:native": "tsdx build -i src/build/native/index.tsx --tsconfig tsconfig.native.json",
+    "postbuild:native": "mkdir -p build/native && mv dist build/native && mv src/build/native build/native/src && cp -R src/raw build/native/src",
+    "clean": "rm -rf src/build && rm -rf dist/ && rm -rf dist && rm -rf build",
     "generate:build-output": "yarn generate:react-components && yarn generate:react-native-components && yarn generate:index-file",
-    "generate:index-file": "echo \"export * from './lined'\" > src/index.tsx",
-    "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/lined --typescript",
-    "generate:react-native-components": "svgr --template svg-rn-template.js src/raw/lined --out-dir src/lined/react-native --typescript --native",
+    "generate:index-file": "echo \"export * from './lined'\" > src/build/native/index.tsx && echo \"export * from './lined'\" > src/build/react/index.tsx",
+    "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/build/react/lined --typescript",
+    "generate:react-native-components": "svgr --template svg-rn-template.js src/raw/lined --out-dir src/build/native/lined --typescript --native",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -40,6 +45,7 @@
     "husky": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-native-svg": "12.x",
     "semantic-release": "^17.4.4",
     "size-limit": "^4.8.0",
     "tsdx": "^0.14.1",
@@ -47,13 +53,7 @@
     "typescript": "^4.1.2"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-native-svg": "12.x"
-  },
-  "peerDependenciesMeta": {
-    "react-native-svg": {
-      "optional": true
-    }
+    "react": ">=16"
   },
   "prettier": {
     "printWidth": 80,

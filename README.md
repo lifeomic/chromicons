@@ -33,13 +33,13 @@ import { Apple } from '@lifeomic/chromicons';
 1. Install Dependencies
 
 ```bash
-yarn add @lifeomic/chromicons react-native-svg
+yarn add @lifeomic/chromicons-native
 ```
 
 2. Import the Icon Components
 
 ```jsx
-import { Apple } from '@lifeomic/chromicons/src/lined/react-native';
+import { Apple } from '@lifeomic/chromicons-native';
 
 <Apple stroke="red" />;
 ```
