@@ -27,6 +27,16 @@ const transformNativePackageJSON = package => {
   return package;
 };
 
+const transformPngsPackageJSON = package => {
+  package.name = '@lifeomic/chromicons-png';
+
+  delete package.main;
+  delete package.typings;
+  delete package.module;
+
+  return package;
+};
+
 const prepareLib = async name => {
   const libDir = path.resolve(__dirname, 'build', name);
 
@@ -43,10 +53,16 @@ const prepareLib = async name => {
 
   if (name === 'native') {
     await rewritePackageJSON(libDir, transformNativePackageJSON);
+  } else if (name === 'pngs') {
+    await rewritePackageJSON(libDir, transformPngsPackageJSON);
   }
 };
 
-Promise.all([prepareLib('react'), prepareLib('native')]).catch(err => {
+Promise.all([
+  prepareLib('react'),
+  prepareLib('native'),
+  prepareLib('pngs'),
+]).catch(err => {
   console.error(err);
   process.exitCode = 1;
 });

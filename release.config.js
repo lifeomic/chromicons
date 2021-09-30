@@ -15,6 +15,12 @@ module.exports = {
       },
     ],
     [
+      '@semantic-release/npm',
+      {
+        pkgRoot: 'build/pngs',
+      },
+    ],
+    [
       '@semantic-release/github',
       {
         failComment: false,

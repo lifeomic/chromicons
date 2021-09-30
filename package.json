@@ -19,17 +19,19 @@
   },
   "scripts": {
     "analyze": "size-limit --why",
-    "build": "yarn build:react && yarn build:native",
+    "build": "yarn build:react && yarn build:native && yarn build:pngs",
     "postbuild": "node prepare-packages.js",
     "build:react": "tsdx build -i src/build/react/index.tsx --tsconfig tsconfig.json",
     "postbuild:react": "mkdir -p build/react && mv dist build/react && mv src/build/react build/react/src && cp -R src/raw build/react/src",
     "build:native": "tsdx build -i src/build/native/index.tsx --tsconfig tsconfig.native.json",
     "postbuild:native": "mkdir -p build/native && mv dist build/native && mv src/build/native build/native/src && cp -R src/raw build/native/src",
+    "build:pngs": "mkdir -p build/pngs && mv src/build/pngs build && cp -R src/raw build/pngs/src",
     "clean": "rm -rf src/build && rm -rf dist/ && rm -rf dist && rm -rf build",
-    "generate:build-output": "yarn generate:react-components && yarn generate:react-native-components && yarn generate:index-file",
+    "generate:build-output": "yarn generate:react-components && yarn generate:react-native-components && yarn generate:pngs && yarn generate:index-file",
     "generate:index-file": "echo \"export * from './lined'\" > src/build/native/index.tsx && echo \"export * from './lined'\" > src/build/react/index.tsx",
     "generate:react-components": "svgr --template svg-template.js src/raw/lined --out-dir src/build/react/lined --typescript",
     "generate:react-native-components": "svgr --template svg-rn-template.js src/raw/lined --out-dir src/build/native/lined --typescript --native",
+    "generate:pngs": "node ./generate-pngs.js ./src/raw/lined -o src/build/pngs/lined",
     "lint": "tsdx lint",
     "size": "size-limit",
     "start": "tsdx watch",
@@ -46,10 +48,12 @@
     "react-dom": "^17.0.1",
     "react-native-svg": "12.x",
     "semantic-release": "^17.4.4",
+    "sharp": "^0.29.1",
     "size-limit": "^4.8.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "yargs": "^17.2.1"
   },
   "peerDependencies": {
     "react": ">=16"
