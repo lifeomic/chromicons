@@ -33,6 +33,7 @@ const transformPngsPackageJSON = package => {
   delete package.main;
   delete package.typings;
   delete package.module;
+  package.files.push('lined');
 
   return package;
 };
