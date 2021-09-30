@@ -6,7 +6,7 @@
   "module": "dist/chromicons.esm.js",
   "files": [
     "dist",
-    "src/**/*"
+    "src"
   ],
   "engines": {
     "node": ">=10"
