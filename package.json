@@ -21,7 +21,7 @@
     "analyze": "size-limit --why",
     "build": "yarn build:react && yarn build:native && yarn build:pngs",
     "postbuild": "node prepare-packages.js",
-    "build:react": "tsdx build -i src/build/react/index.tsx --tsconfig tsconfig.react.json",
+    "build:react": "tsdx build -i src/build/react/index.tsx --tsconfig tsconfig.json",
     "postbuild:react": "mkdir -p build/react && mv dist build/react && mv src/build/react build/react/src && cp -R src/raw build/react/src",
     "build:native": "tsdx build -i src/build/native/index.tsx --tsconfig tsconfig.native.json",
     "postbuild:native": "mkdir -p build/native && mv dist build/native && mv src/build/native build/native/src && cp -R src/raw build/native/src",
