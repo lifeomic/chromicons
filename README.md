@@ -43,7 +43,7 @@ Icon images are stored in the `lined` folder. Each icon has its own folder with 
 ```jsx
 <Image
   style={{ height: 24, width: 24, tintColor: 'red' }}
-  source={require('@lifeomic/chromicons/lined/apple/apple.png')}
+  source={require('@lifeomic/chromicons-png/lined/apple/apple.png')}
 />
 ```
 
