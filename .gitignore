@@ -3,5 +3,6 @@
 .cache
 dist
 build
+src/lined/*
 src/build/*
 src/index.tsx
